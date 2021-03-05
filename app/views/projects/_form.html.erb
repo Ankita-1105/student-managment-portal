@@ -1,0 +1,37 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.select :student_id, options_from_collection_for_select(Student.all, :id, :full_name, form.object.student_id), prompt: "-- Select student --" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject %>
+    <%= form.select :subject, options_for_select(Project::SUBJECT_NAME, form.object.subject), prompt: "-- Select subject --" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :submitted_on %>
+    <%= form.date_select :submitted_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

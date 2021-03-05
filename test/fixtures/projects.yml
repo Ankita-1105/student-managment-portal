@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  project_name: MyString
+  subject: MyString
+  submitted_on: 2021-03-05
+
+two:
+  student: two
+  project_name: MyString
+  subject: MyString
+  submitted_on: 2021-03-05
